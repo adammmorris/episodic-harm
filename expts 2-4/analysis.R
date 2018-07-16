@@ -31,7 +31,7 @@ studies = c('rhyme', 'rhyme_justifboth', 'read', 'scrambled')
 
 # choose which study to analyze
 # set to studies[c(1,2,3)] to get combined analysis
-study = studies[c(1,2,3)]
+study = studies[c(2)]
 
 # read in data
 # 'imagine' column is trial type (imagine vs. control)
@@ -72,7 +72,7 @@ df.bycond <- df.bysubj %>% group_by(condition, imagine) %>%
 # how does imagining (vs control) alter the likelihood of performing behavior in each condition?
 
 ## make plot
-if (study %in% c('rhyme', 'rhyme_justifboth')) {
+if (length(study) == 1 & study %in% c('rhyme', 'rhyme_justifboth')) {
   plt.labs = c("Justified", "Neutral", "Unjustified")
   plt.vals = c("Darkgreen", "Blue", "Red")
 } else {
